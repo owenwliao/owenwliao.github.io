@@ -87,12 +87,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // If the project defines `videoBlocks`, render those (allows multiple hardcoded videos with titles/captions)
     if (project.videoBlocks && project.videoBlocks.length > 0) {
       const blocks = project.videoBlocks.map(block => {
-        let src = block.src || '';
-        if (window.location.pathname.includes('projects/')) {
-          src = '../' + src.replace('./', '');
+        const originalSrc = block.src || '';
+        // Only prefix relative/local paths for pages under `projects/`.
+        let src = originalSrc;
+        const isExternal = /^https?:\/\//i.test(originalSrc) || /^\/\//.test(originalSrc);
+        if (!isExternal && window.location.pathname.includes('projects/')) {
+          src = '../' + originalSrc.replace('./', '');
         }
 
-        const isVideoFile = /\.(mp4|webm|ogg)$/i.test(src) || !/^https?:\/\//i.test(src);
+        const isVideoFile = /\.(mp4|webm|ogg)$/i.test(originalSrc) || !isExternal;
 
         return `
           <div class="project-video-block">
@@ -103,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   Your browser does not support the video tag.
                 </video>
               ` : `
-                <iframe src="${toEmbedUrl(src)}" title="${block.title || project.title} video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe src="${toEmbedUrl(originalSrc)}" title="${block.title || project.title} video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               `}
             </div>
             ${block.title ? `<h4 class="project-video-title">${block.title}</h4>` : ''}
@@ -123,35 +126,45 @@ document.addEventListener('DOMContentLoaded', function() {
 
     } else if (project.videoUrl) {
       // Adjust video path for project pages (same pattern used for images)
-      let videoPath = project.videoUrl;
-      if (window.location.pathname.includes('projects/')) {
-        videoPath = '../' + project.videoUrl.replace('./', '');
+      const originalVideoUrl = project.videoUrl || '';
+      const isExternalUrl = /^https?:\/\//i.test(originalVideoUrl) || /^\/\//.test(originalVideoUrl);
+      // Only prefix relative/local paths for pages under `projects/`.
+      let videoPath = originalVideoUrl;
+      if (!isExternalUrl && window.location.pathname.includes('projects/')) {
+        videoPath = '../' + originalVideoUrl.replace('./', '');
       }
 
-      // If it's a direct video file (mp4/webm/ogg) or not an http(s) URL, render a <video>
-      const isVideoFile = /\.(mp4|webm|ogg)$/i.test(videoPath);
-      const isExternalUrl = /^https?:\/\//i.test(project.videoUrl);
+      // If it's a direct video file (mp4/webm/ogg) or a local path, render a <video>
+      const isVideoFile = /\.(mp4|webm|ogg)$/i.test(originalVideoUrl) || !isExternalUrl;
 
-      if (isVideoFile || !isExternalUrl) {
+      if (isVideoFile) {
         videoHTML = `
           <div class="project-video-section">
             <h3>Video</h3>
-            <div class="project-video-wrapper">
-              <video class="project-video" controls>
-                <source src="${videoPath}" type="video/${videoPath.split('.').pop().toLowerCase()}">
-                Your browser does not support the video tag.
-              </video>
+            <div class="project-video-grid">
+              <div class="project-video-block">
+                <div class="project-video-aspect">
+                  <video class="project-video" controls>
+                    <source src="${videoPath}" type="video/${videoPath.split('.').pop().toLowerCase()}">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </div>
             </div>
           </div>
         `;
       } else {
         // Fallback to embedding (YouTube, Vimeo, etc.)
-        const embedUrl = toEmbedUrl(project.videoUrl);
+        const embedUrl = toEmbedUrl(originalVideoUrl);
         videoHTML = `
           <div class="project-video-section">
             <h3>Video</h3>
-            <div class="project-video-wrapper">
-              <iframe src="${embedUrl}" title="${project.title} video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="project-video-grid">
+              <div class="project-video-block">
+                <div class="project-video-aspect">
+                  <iframe src="${embedUrl}" title="${project.title} video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+              </div>
             </div>
           </div>
         `;
