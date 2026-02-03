@@ -571,7 +571,7 @@ a.title-resume-btn-a {
     display: block;
     object-fit: cover;
     /* Reduce visible height so title/text are more quickly visible; adjust as needed */
-    max-height: 55vh;
+    /* max-height: 55vh; */
     height: auto;
   }
   
@@ -619,6 +619,27 @@ a.title-resume-btn-a {
     margin: 0;
     color: #666;
     font: var(--light-p);
+  }
+
+  /* Centered play button for single-project pages (matches About Me button styling) */
+  .project-play-button-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Transparent variant for the play button */
+  .project-play-btn {
+    background: transparent;
+    color: var(--colorprimary);
+    border-color: #000;
+    opacity: 0.95;
+  }
+  .project-play-btn:hover {
+    opacity: 1;
+    transform: translateY(-1px);
   }
   
   .tag-group {

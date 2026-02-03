@@ -117,6 +117,7 @@ const projectsData = [
       }
     ],
     tags: ['Robotics', 'C++', 'Arduino', 'Onshape'],
+    githubUrl: 'https://github.com/jack898/junior-design',
     tagClasses: ['robotics', 'cpp', 'embedded', 'onshape'],
     content: `
       <h2>Autonomous Robotics & Sensor Fusion</h2>
@@ -180,6 +181,7 @@ const projectsData = [
     image: './img/project images/meow/photo1.png',
     videoUrl: 'https://youtu.be/_TI-8UotO0I',
     tags: ['VHDL', 'Digital Logic'],
+    githubUrl: 'https://github.com/owenwliao/ES4-Meow-Memory',
     tagClasses: ['vhdl', 'fpga'],
     content: `
       <h2>Hardware Description Language Design</h2>
@@ -244,6 +246,7 @@ const projectsData = [
     image: './img/project images/synth/photo1.png',
     videoUrl: 'https://youtu.be/pEdnrgp-lO0',
     tags: ['Embedded C', 'STM32'],
+    githubUrl: 'https://github.com/owenwliao/EE14-Digital-Synthesizer',
     tagClasses: ['embedded', 'stm32'],
     content: `
       <h2>Embedded Systems & Audio Processing</h2>
@@ -277,7 +280,7 @@ const projectsData = [
     isCompact: true,
     description: 'FIR and IIR filter design for biomedical signals.',
     shortDescription: 'Designed FIR and IIR filters for ECG and EMG data in Python.',
-    image: './img/project images/dsp/photo1.png',
+    image: '',
     videoUrl: '',
     tags: ['Python', 'NumPy', 'SciPy', 'Signal Processing'],
     tagClasses: ['embedded', 'cpp', 'embedded', 'systems'],
@@ -332,8 +335,9 @@ const projectsData = [
     description: 'Team-developed FPS demo built in Unity.',
     shortDescription: 'Developed a multiplayer FPS prototype using Unity and C#.',
     image: './img/project images/goose/photo1.png',
-    videoUrl: '',
+    videoUrl: 'https://www.youtube.com/watch?v=y4py64-kFPM',
     tags: ['Unity', 'Game Development', 'C#'],
+    githubUrl: 'https://github.com/LordofMankid/goose-goose',
     tagClasses: ['embedded', 'cpp', 'systems'],
     photos: [],
     content: `
@@ -344,7 +348,7 @@ const projectsData = [
       <ul>
         <li><strong>Player Mechanics:</strong> Implemented first-person camera and movement systems.</li>
         <li><strong>Weapons:</strong> Designed weapon behavior and interactions.</li>
-        <li><strong>Level Design:</strong> Built playable maps with structured flow and engagement.</li>
+        <li><strong>Enemy AI:</strong> Built basic enemy behaviors and pathfinding.</li>
       </ul>
       
       <h3>Team Coordination</h3>

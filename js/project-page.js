@@ -185,11 +185,33 @@ document.addEventListener('DOMContentLoaded', function() {
       contentToRender = contentToRender.replace(dateHeaderMatch[0], '').trim();
     }
     
+    // Top action buttons: play (itch.io) and optional GitHub "View source"
+    let topButtonsHTML = '';
+    const topButtons = [];
+    if (project.id === 'fps-game-design') {
+      topButtons.push(`<a class="title-about-btn button-text project-play-btn" href="https://goosey-goose.itch.io/goose-goose" target="_blank" rel="noopener">Play on itch.io</a>`);
+    }
+    if (project.githubUrl) {
+      topButtons.push(`<a class="title-about-btn button-text" href="${project.githubUrl}" target="_blank" rel="noopener">View source (GitHub)</a>`);
+    }
+    if (topButtons.length) {
+      topButtonsHTML = `
+        <div class="project-play-button-container">
+          ${topButtons.join('\n')}
+        </div>
+      `;
+    }
+
+    // If project is marked compact, omit the large header image container
+    const headerImageHTML = (!project.isCompact && imagePath) ? `
+      <div class="project-page-image-container">
+        <img src="${imagePath}" alt="${project.title}" class="project-page-image">
+      </div>
+    ` : '';
+
     projectContent.innerHTML = `
       <div class="${headerClass}">
-        <div class="project-page-image-container">
-          <img src="${imagePath}" alt="${project.title}" class="project-page-image">
-        </div>
+        ${headerImageHTML}
         <div class="project-page-header-info">
           <h1 class="project-page-title">${project.title}</h1>
           ${dateHeaderHTML}
@@ -200,6 +222,7 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>
         </div>
       </div>
+      ${topButtonsHTML}
       <div class="project-page-body">
         ${contentToRender}
         ${videoHTML}
