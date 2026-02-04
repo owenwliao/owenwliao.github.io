@@ -6,7 +6,13 @@ const skillsData = [
   { name: 'JavaScript', img: './img/Skill images/javascript.png' },
   { name: 'Java', img: './img/Skill images/Java.png' },
   { name: 'Figma', img: './img/Skill images/Figma.png' },
-  { name: 'Office 365', img: './img/Skill images/Office 365.png' }
+  { name: 'Office 365', img: './img/Skill images/Office 365.png' },
+  { name: 'Arduino', img: './img/Skill images/Arduino.png' },
+  { name: 'Altium Designer', img: './img/Skill images/Altium.png' },
+  { name: 'STM', img: './img/Skill images/STM.png' },
+  { name: 'Python', img: './img/Skill images/Python.png' },
+  { name: 'Onshape', img: './img/Skill images/Onshape.png' },
+  { name: 'Git', img: './img/Skill images/Git.png' },
 ];
 
 // Build and loop the carousel; duplicates content for a seamless scroll

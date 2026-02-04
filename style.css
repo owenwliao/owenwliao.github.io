@@ -559,6 +559,102 @@ a.title-resume-btn-a {
     box-shadow: none;
   }
 
+  /* Inline/floating images */
+  .project-inline-figure {
+    max-width: 300px;
+    margin: 0.5rem 1rem 0.5rem 0;
+    float: left;
+    background: #ffffff;
+    border: 1px solid rgba(16,24,32,0.06);
+    border-radius: 8px;
+    padding: 0.5rem;
+    box-shadow: 0 2px 8px rgba(16,24,32,0.1);
+  }
+
+  /* Size modifiers for inline figures */
+  .project-inline-figure.small {
+    max-width: 150px;
+  }
+
+  .project-inline-figure.medium {
+    max-width: 250px;
+  }
+
+  .project-inline-figure.large {
+    max-width: 400px;
+  }
+
+  .project-inline-figure.right {
+    float: right;
+    margin: 0.5rem 0 0.5rem 1rem;
+  }
+
+  .project-inline-figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+  }
+
+  .project-inline-figure figcaption {
+    font: var(--light-p);
+    font-size: 14px;
+    color: #666;
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+
+  /* Legacy support for images without captions */
+  .project-inline-image {
+    max-width: 300px;
+    height: auto;
+    margin: 0.5rem 1rem 0.5rem 0;
+    float: left;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(16,24,32,0.1);
+  }
+
+  .project-inline-image.small {
+    max-width: 150px;
+  }
+
+  .project-inline-image.medium {
+    max-width: 250px;
+  }
+
+  .project-inline-image.large {
+    max-width: 400px;
+  }
+
+  .project-inline-image.right {
+    float: right;
+    margin: 0.5rem 0 0.5rem 1rem;
+  }
+
+  /* Clear floats after paragraphs with inline images */
+  .clear {
+    clear: both;
+  }
+
+  /* Mobile responsive: make inline images full-width on small screens */
+  @media (max-width: 768px) {
+    .project-inline-figure,
+    .project-inline-figure.right {
+      float: none;
+      max-width: 100%;
+      margin: 1rem auto;
+      display: block;
+    }
+
+    .project-inline-image,
+    .project-inline-image.right {
+      float: none;
+      max-width: 100%;
+      margin: 1rem auto;
+      display: block;
+    }
+  }
+
   /* Constrain project page header image so it doesn't push content below the fold */
   .project-page-image-container {
     width: 100%;
@@ -718,7 +814,7 @@ a.title-resume-btn-a {
   }
   
   .skill-logo img {
-    height: 60px;
+    height: 80px;
     width: auto;
     display: block;
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));

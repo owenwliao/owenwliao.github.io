@@ -126,6 +126,10 @@ const projectsData = [
         to create a self-navigating lane-following robot.
       </p>
       
+      <figure class="project-inline-figure right"> 
+          <img src="../img/project images/jrdesign/3d color sep.png" alt="Description" class="project-inline-image">
+          <figcaption class="project-figcaption">3D visualization of color vectors.</figcaption>
+      </figure>
       <h3>Control Logic & Algorithms</h3>
       <ul>
         <li>
@@ -139,6 +143,10 @@ const projectsData = [
       </ul>
       
       <h3>Mechanical & Hardware Design</h3>
+      <figure class="project-inline-figure right medium"> 
+          <img src="../img/project images/jrdesign/chassis.jpg" alt="Description" class="project-inline-image">
+          <figcaption class="project-figcaption">Laser-cut chassis with IR distance sensors attached.</figcaption>
+      </figure>
       <ul>
         <li>
           <strong>Laser-Cut Chassis:</strong> Designed a minimal rectangular chassis optimized for material efficiency and fabricated
@@ -160,11 +168,11 @@ const projectsData = [
       <div class="project-fullwidth-images">
         <figure class="project-figure">
           <img src="../img/project images/jrdesign/Team-Cookin_-Schematic-v2.svg" alt="Schematic" class="project-fullwidth-image">
-          <figcaption class="project-figcaption">Schematic</figcaption>
+          <figcaption class="project-figcaption">Schematic.</figcaption>
         </figure>
         <figure class="project-figure">
           <img src="../img/project images/jrdesign/Team-Cookin_-Wire-Diagram-v2.svg" alt="Wiring diagram" class="project-fullwidth-image small-85 rotate-ccw">
-          <figcaption class="project-figcaption">Wiring diagram</figcaption>
+          <figcaption class="project-figcaption">Wiring diagram.</figcaption>
         </figure>
       </div>
     `
