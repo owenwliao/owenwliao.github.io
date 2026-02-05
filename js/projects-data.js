@@ -281,7 +281,7 @@ const projectsData = [
   },
   {
     id: 'digital-signal-processing',
-    title: 'Digital Signal Processing',
+    title: 'DSP Filter Design',
     date: 'Fall 2024',
     sortDate: '2024-09',
     category: 'Academic Projects',
@@ -306,11 +306,15 @@ const projectsData = [
       
       <h3>Technologies & Tools</h3>
       <p>Python, NumPy, Matplotlib, SciPy</p>
-    `
+
+      <figure class="project-figure">
+        <img src="../img/project images/dsp/filter_response.png" alt="Filter Response" class="project-fullwidth-image">
+        <figcaption class="project-figcaption">Effects of FIR/IIR filters on contaminated biomedical signal.</figcaption>
+      </figure>      `
   },
   {
     id: 'impedance-matching',
-    title: 'Electromagnetic Impedance Matching',
+    title: 'RF Impedance Matching System',
     date: 'Spring 2024',
     sortDate: '2024-03',
     category: 'Academic Projects',
@@ -319,18 +323,21 @@ const projectsData = [
     shortDescription: 'Designed RF matching networks using Smith chart analysis.',
     image: './img/project images/matching/photo1.png',
     videoUrl: '',
+    pdfUrl: '../files/EE18-Final-Project.pdf',
     tags: ['Circuit Design', 'Smith Charts', 'RF'],
     tagClasses: ['circuit', 'analog', 'embedded'],
     photos: [],
     content: `
-      <h2>Impedance Matching System Design</h2>
-      <p>Designed an RF impedance matching network to maximize power transfer and minimize reflections.</p>
+      <h2>RF Plasma Generator Impedance Matching System Design</h2>
+      <p>Designed an RF impedance matching network to maximize power transfer and minimize reflections for a plasma generator operating at RF frequencies.</p>
       
       <h3>Design Approach</h3>
       <ul>
-        <li><strong>Smith Chart Analysis:</strong> Used impedance plane visualization to guide component selection.</li>
-        <li><strong>Double-Stub Matching:</strong> Implemented a double-shorted stub configuration.</li>
-        <li><strong>Component Selection:</strong> Selected inductors and capacitors to meet matching targets.</li>
+        <li><strong>Smith Chart Analysis:</strong> Used impedance plane visualization to guide component selection and visualize impedance transformations.</li>
+        <li><strong>Double-Stub Matching:</strong> Implemented a double-stub transmission line matching technique.</li>
+        <li><strong>LC Circuit Matching:</strong> Designed an LC network using discrete inductors and capacitors.</li>
+        <li><strong>Reflection Coefficient Minimization:</strong> Optimized matching topologies to minimize VSWR and maximize power delivered to the load.</li>
+        <li><strong>Simulation Validation:</strong> Verified designs using circuit simulation tools to ensure matching performance met specifications.</li>
       </ul>
     `
   },

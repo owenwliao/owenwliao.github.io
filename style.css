@@ -71,7 +71,9 @@ body {
     overflow-x: hidden;
     width: 100%;
     margin: 0px;
-    background-color: var(--colorbackground);
+    background-color: #fff;
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.12) 1.5px, transparent 1.5px);
+    background-size: 24px 24px;
 }
 
 a {
@@ -106,7 +108,7 @@ a:visited {
 
 .header-container {
     display: flex;
-    padding: 15px 144px;
+    padding: 10px 144px;
     justify-content: space-between;
     align-items: flex-start;
     align-self: stretch;
@@ -115,15 +117,17 @@ a:visited {
 .logo {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
     align-self: stretch;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    padding: 8px 12px;
+    padding: 4px 8px;
     border-radius: 8px;
     cursor: pointer;
 }
 
 .logo img {
+    height: 26px;
+    width: auto;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
@@ -166,7 +170,7 @@ a:visited {
 .title-section {
     font-size: 53.75px;
     display: flex;
-    padding: 180px 144px 96px;
+    padding: 100px 144px 96px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -780,7 +784,7 @@ a.title-resume-btn-a {
     max-width: 1200px;
     margin: 0 auto;
     text-align: center;
-    background: #f9fafb;
+    background: #fff;
     overflow: hidden;
     position: relative;
   }
@@ -1033,13 +1037,16 @@ a.title-resume-btn-a {
   
   /* Footer */
   .footer-section {
-    margin-top: 4rem;
+    margin-top: 0;
     background: #fff;
     padding: 2rem 1rem;
     text-align: center;
     font: var(--light-p);
     color: #aaa;
     border-top: 1px solid #e0e0e0;
+    box-shadow: 0 -4px 12px rgba(0,0,0,0.12);
+    position: relative;
+    z-index: 10;
   }
   
   .footer-social-container {
@@ -1120,7 +1127,7 @@ a.title-resume-btn-a {
   /* Project Page Styling */
   .project-page-container {
     max-width: 1000px;
-    margin: 120px auto 4rem;
+    margin: 90px auto 4rem;
     padding: 2rem;
     background: white;
     border-radius: 24px;

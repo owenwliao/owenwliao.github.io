@@ -191,6 +191,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (project.id === 'fps-game-design') {
       topButtons.push(`<a class="title-about-btn button-text project-play-btn" href="https://goosey-goose.itch.io/goose-goose" target="_blank" rel="noopener">Play on itch.io</a>`);
     }
+    if (project.pdfUrl) {
+      topButtons.push(`<a class="title-about-btn button-text" href="${project.pdfUrl}" target="_blank" rel="noopener">View Paper</a>`);
+    }
     if (project.githubUrl) {
       topButtons.push(`<a class="title-about-btn button-text" href="${project.githubUrl}" target="_blank" rel="noopener">View source (GitHub)</a>`);
     }
